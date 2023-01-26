@@ -1,7 +1,8 @@
 import type { NextPage } from 'next';
+import PageTemplate from '../components/common/PageTemplate';
 
 const Home: NextPage = () => {
-  return <div>The Why Consulting</div>;
+  return <PageTemplate>The Why Consulting</PageTemplate>;
 };
 
 export default Home;
