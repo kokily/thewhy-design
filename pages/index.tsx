@@ -52,10 +52,13 @@ const Home: NextPage = () => {
   ];
 
   return (
-    <PageTemplate>
-      <HomeImages slides={slides} />
-      <HomeLinks links={links} />
-    </PageTemplate>
+    <>
+      <NextSeo canonical="https://thewhy.kr" />
+      <PageTemplate>
+        <HomeImages slides={slides} />
+        <HomeLinks links={links} />
+      </PageTemplate>
+    </>
   );
 };
 
