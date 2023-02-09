@@ -1,16 +1,16 @@
 import { useCallback, useState } from 'react';
 import { IoMdClose } from 'react-icons/io';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import useMedia from '../../../../libs/hooks/useMedia';
 import NavsList from './NavsList';
 import {
   NavigationContainer,
   NavigationMobile,
   NavigationMobileWrapper,
 } from './styles';
+import useMobile from '../../../../libs/hooks/useMobile';
 
 export default function Navigation() {
-  const isSmall = useMedia('(max-width: 992px)');
+  const isSmall = useMobile();
   const [toggle, setToggle] = useState(false);
 
   const onToggle = useCallback(() => {

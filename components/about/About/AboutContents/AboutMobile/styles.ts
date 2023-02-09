@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const MobileLead = styled.p`
+const MobileLead = styled.div`
   font-family: '윤고딕310', sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -15,7 +15,7 @@ const MobileLead = styled.p`
   animation-duration: 1s;
 `;
 
-const MobileNaming = styled.p`
+const MobileNaming = styled.div`
   font-family: '윤고딕360', sans-serif;
   font-size: 18px;
   font-weight: 400;

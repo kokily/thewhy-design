@@ -12,7 +12,7 @@ const HeaderTopRightContainer = styled.div`
   }
 `;
 
-const HeaderTopRightInfos = styled.p`
+const HeaderTopRightInfos = styled.div`
   font-size: 13px;
   font-family: helvetica serif, sans-seif;
   font-weight: 600;

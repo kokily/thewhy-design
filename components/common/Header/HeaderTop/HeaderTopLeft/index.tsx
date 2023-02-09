@@ -11,11 +11,11 @@ export default function HeaderTopLeft() {
       <HeaderTopLeftTitle>커뮤니케이션 전문 교육 컨설팅</HeaderTopLeftTitle>
 
       <HeaderTopLeftIconsBox>
-        <a href="/">
+        <a href="#null">
           <HeaderTopLeftIcon className="youtube" />
         </a>
 
-        <a href="/">
+        <a href="#null">
           <HeaderTopLeftIcon className="naver" />
         </a>
       </HeaderTopLeftIconsBox>

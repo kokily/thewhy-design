@@ -1,4 +1,3 @@
-import { BrowserView, MobileView } from 'react-device-detect';
 import Image from 'next/image';
 import {
   AboutContentsContainer,
@@ -8,20 +7,17 @@ import {
 } from './styles';
 import AboutBrowserContent from './AboutBrowser';
 import AboutMobileContent from './AboutMobile';
+import useMobile from '../../../../libs/hooks/useMobile';
 
 export default function AboutContents() {
+  const isSmall = useMobile();
+
   return (
     <AboutContentsContainer>
       <AboutContentsLayout className="text">
         <AboutContentsTitle>Why The Y</AboutContentsTitle>
 
-        <BrowserView>
-          <AboutBrowserContent />
-        </BrowserView>
-
-        <MobileView>
-          <AboutMobileContent />
-        </MobileView>
+        {isSmall ? <AboutMobileContent /> : <AboutBrowserContent />}
       </AboutContentsLayout>
 
       <AboutContentsImageBox>

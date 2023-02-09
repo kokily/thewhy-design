@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const BrowserLead = styled.p`
+const BrowserLead = styled.div`
   font-family: '윤고딕310', sans-serif;
   font-size: 22px;
   font-weight: 400;
@@ -15,7 +15,7 @@ const BrowserLead = styled.p`
   animation-duration: 1s;
 `;
 
-const BrowserNaming = styled.p`
+const BrowserNaming = styled.div`
   font-family: '윤고딕360', sans-serif;
   font-size: 18px;
   font-weight: 400;

@@ -45,7 +45,7 @@ export default function NavItem({ menu, isSmall }: Props) {
         </>
       ) : (
         <Link href={menu.url}>
-          <a className="link">{menu.title}</a>
+          <a>{menu.title}</a>
         </Link>
       )}
     </NavItemContainer>
