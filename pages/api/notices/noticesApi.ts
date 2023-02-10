@@ -24,7 +24,7 @@ type AddNoticePayload = {
 };
 
 export async function addNoticeAPI(payload: AddNoticePayload) {
-  const response = await axios.post('/api/notices', payload);
+  const response = await axios.post('/api/notices/add', payload);
   return response.data;
 }
 

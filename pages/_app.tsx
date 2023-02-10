@@ -1,4 +1,5 @@
 import type { AppProps } from 'next/app';
+import type { Session } from 'next-auth';
 import type { DefaultSeoProps } from 'next-seo';
 import { useState } from 'react';
 import { SessionProvider } from 'next-auth/react';
@@ -40,12 +41,15 @@ const DefaultSEO: DefaultSeoProps = {
   },
 };
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppProps<{ session: Session }>) {
   const [queryClient] = useState(() => new QueryClient());
   const dehydratedState = dehydrate(queryClient);
 
   return (
-    <SessionProvider>
+    <SessionProvider session={session}>
       <Head>
         <meta charSet="utf-8" />
         <link rel="shortcut icon" href="/favicon.ico" />

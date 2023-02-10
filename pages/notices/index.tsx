@@ -1,6 +1,7 @@
 import type { GetServerSideProps, NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 import PageTemplate from '../../components/common/PageTemplate';
+import ListNotices from '../../components/notices/list/ListNotices';
 import db from '../../libs/db';
 
 interface Props {
@@ -19,7 +20,9 @@ const ListNoticesPage: NextPage<Props> = ({ description }) => {
         }}
       />
 
-      <PageTemplate>ListNoticesPage</PageTemplate>
+      <PageTemplate>
+        <ListNotices />
+      </PageTemplate>
     </>
   );
 };
