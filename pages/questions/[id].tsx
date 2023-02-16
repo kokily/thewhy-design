@@ -1,28 +1,27 @@
-import type { Story } from '@prisma/client';
+import type { Question } from '@prisma/client';
 import type { GetServerSideProps, NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 import PageTemplate from '../../components/common/PageTemplate';
-import ReadStory from '../../components/stories/read/ReadStory';
+import ReadQuestion from '../../components/questions/read/ReadQuestion';
 import db from '../../libs/db';
 
 interface Props {
-  story: Story;
+  question: Question;
   description: string[];
 }
 
-const ReadStoryPage: NextPage<Props> = ({ story, description }) => {
+const ReadQuestionPage: NextPage<Props> = ({ question, description }) => {
   return (
     <>
       <NextSeo
-        title={`${story.title} - 더와이컨설팅`}
-        description={description ? description.toString() : undefined}
-        canonical={`https://thewhy.kr/stories/${story.id}`}
-        openGraph={{
-          description: description ? description.toString() : undefined,
-        }}
+        title={`${question.title} - 더와이컨설팅`}
+        description={description.toString()}
+        canonical={`https://thewhy/questions/${question.id}`}
+        openGraph={{ description: description.toString() }}
       />
+
       <PageTemplate>
-        <ReadStory />
+        <ReadQuestion />
       </PageTemplate>
     </>
   );
@@ -30,20 +29,20 @@ const ReadStoryPage: NextPage<Props> = ({ story, description }) => {
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const id = params.id as string;
-  const story = await db.story.findUnique({
+  const question = await db.question.findUnique({
     where: { id },
   });
-  const description = story.body
+  const description = question.body
     .replace(/ /gi, '')
     .replace(/[\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/gi, '')
     .substring(0, 50);
 
   return {
     props: {
-      story: JSON.parse(JSON.stringify(story)),
+      question: JSON.parse(JSON.stringify(question)),
       description: JSON.parse(JSON.stringify(description)),
     },
   };
 };
 
-export default ReadStoryPage;
+export default ReadQuestionPage;

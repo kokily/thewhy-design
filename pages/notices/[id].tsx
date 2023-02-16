@@ -18,6 +18,9 @@ const ReadNoticePage: NextPage<Props> = ({ notice, description }) => {
         title={`${notice.title} - 더와이컨설팅`}
         description={description ? description.toString() : undefined}
         canonical={`https://thewhy.kr/notice/${notice.id}`}
+        openGraph={{
+          description: description ? description.toString() : undefined,
+        }}
       />
 
       <PageTemplate>

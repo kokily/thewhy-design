@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getSession } from 'next-auth/react';
-import db from '../../../libs/db';
+import db from '../../../../libs/db';
 
 export default async function removeReplyHandler(
   req: NextApiRequest,
@@ -15,8 +15,12 @@ export default async function removeReplyHandler(
       throw new Error('접근 권한이 없습니다.');
     }
 
-    await db.question.delete({
+    await db.question.update({
       where: { id: questionId },
+      data: {
+        reply: null,
+        updatedAt: new Date(),
+      },
     });
 
     res.status(204);
