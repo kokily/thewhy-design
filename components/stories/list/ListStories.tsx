@@ -31,6 +31,7 @@ export default function ListStories() {
 
       {listStories.stories.map((story) => (
         <StoryCard
+          key={story.id}
           story={story}
           onReadStory={listStories.onReadStory}
           onClickTag={listStories.onClickTag}

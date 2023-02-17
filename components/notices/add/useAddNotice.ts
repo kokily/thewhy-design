@@ -18,15 +18,13 @@ export default function useAddNotice() {
   const addNoticeMutate = useMutation(addNoticeAPI);
   const updateNoticeMutate = useMutation(updateNoticeAPI);
 
-  if (id) {
-    useQuery('updateNotice', () => readNoticeAPI(id), {
-      onSuccess: (data) => {
-        setTitle(data.title);
-        setBody(data.body);
-      },
-      onError: () => {},
-    });
-  }
+  useQuery('updateNotice', () => readNoticeAPI(id), {
+    onSuccess: (data) => {
+      setTitle(data.title);
+      setBody(data.body);
+    },
+    onError: () => {},
+  });
 
   const onChangeTitle = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setTitle(e.target.value);

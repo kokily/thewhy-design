@@ -21,18 +21,16 @@ export default function useAddStory() {
   const addStoryMutate = useMutation(addStoryAPI);
   const updateStoryMutate = useMutation(updateStoryAPI);
 
-  if (id) {
-    // Loading for update story
-    useQuery('updateStory', () => readStoryAPI(id), {
-      onSuccess: (data) => {
-        setTitle(data.title);
-        setBody(data.body);
-        setThumbnail(data.thumbnail);
-        setTags(data.tags);
-      },
-      onError: () => {},
-    });
-  }
+  // Loading for update story
+  useQuery('updateStory', () => readStoryAPI(id), {
+    onSuccess: (data) => {
+      setTitle(data.title);
+      setBody(data.body);
+      setThumbnail(data.thumbnail);
+      setTags(data.tags);
+    },
+    onError: () => {},
+  });
 
   const onChangeTitle = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setTitle(e.target.value);

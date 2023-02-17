@@ -60,7 +60,7 @@ export default function useListQuestions() {
 
   useEffect(() => {
     if (scrollY !== 0) window.scrollTo(0, Number(scrollY));
-  }, []);
+  }, [scrollY]);
 
   return {
     questions,

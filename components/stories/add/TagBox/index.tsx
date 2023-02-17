@@ -14,6 +14,8 @@ const TagItem = memo(
   )
 );
 
+TagItem.displayName = 'TagItem';
+
 const TagsList = memo(
   ({ tags, onRemove }: { tags: string[]; onRemove: (id: string) => void }) => (
     <TagsListContainer>
@@ -23,6 +25,8 @@ const TagsList = memo(
     </TagsListContainer>
   )
 );
+
+TagsList.displayName = 'TagsList';
 
 interface Props {
   input: string;

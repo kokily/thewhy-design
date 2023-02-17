@@ -26,22 +26,20 @@ export default function useAddQuestion() {
   const addQuestionMutate = useMutation(addQuestionAPI);
   const updateQuestionMutate = useMutation(updateQuestionAPI);
 
-  if (id) {
-    useQuery('updateQuestion', () => readQuestionAPI(id), {
-      onSuccess: (data) => {
-        setInputs({
-          ...inputs,
-          username: data.username,
-          password: data.password,
-          title: data.title,
-          body: data.body,
-          phone: data.phone,
-          email: data.email,
-        });
-      },
-      onError: () => {},
-    });
-  }
+  useQuery('updateQuestion', () => readQuestionAPI(id), {
+    onSuccess: (data) => {
+      setInputs({
+        ...inputs,
+        username: data.username,
+        password: data.password,
+        title: data.title,
+        body: data.body,
+        phone: data.phone,
+        email: data.email,
+      });
+    },
+    onError: () => {},
+  });
 
   const onChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
